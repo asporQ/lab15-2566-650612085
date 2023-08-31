@@ -73,7 +73,8 @@ const schema = z
   )
   .refine(
     (data) => {
-      if (data.password === data.confirmPassword);
+      if (data.password === data.confirmPassword) return true;
+      return false;
     },
     {
       message: "Password does not match",
